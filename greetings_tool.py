@@ -17,5 +17,9 @@ class GreetingsTool(BaseTool):
 
     def _execute(self, greetings: str = None):
         from_name = self.get_tool_config('FROM')
-        greetings_str = greetings + "\n" + from_name
-        return greetings_str
+        if type(greetings) != "str":
+            return "Hello" + "\n" + from_name
+        else:
+            greetings_str = greetings + "\n" + from_name
+            return greetings_str
+                
